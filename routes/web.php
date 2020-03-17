@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'API'], function () {
+    Route::post('api/sendsms', 'UserController@sendsms');
+    Route::any('api/login', 'UserController@login');
 });
